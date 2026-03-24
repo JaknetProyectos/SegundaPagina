@@ -21,7 +21,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Simulated admin credentials
 const ADMIN_CREDENTIALS = {
-  email: "admin@viajes.mx",
+  email: "admin@zenithmexico.com.mx",
   password: "admin123"
 };
 
@@ -32,7 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Check for existing session on mount
-    const savedUser = localStorage.getItem("viajes-mx-admin");
+    const savedUser = localStorage.getItem("ZenithMexico-admin");
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         role: "admin"
       };
       setUser(userData);
-      localStorage.setItem("viajes-mx-admin", JSON.stringify(userData));
+      localStorage.setItem("ZenithMexico-admin", JSON.stringify(userData));
       setIsLoading(false);
       return true;
     }
@@ -67,7 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("viajes-mx-admin");
+    localStorage.removeItem("ZenithMexico-admin");
     router.push("/admin/login");
   };
 

@@ -90,9 +90,6 @@ export default function ExperienceDetailPage() {
       includes: selectedPackage.features || []
     };
 
-    // SOLUCIÓN AL NaN: 
-    // Enviamos el objeto experience con el precio numérico correcto
-    // y nos aseguramos de que el contexto reciba los datos necesarios.
     addToCart({
       experienceId: experience.id,
       experience: {

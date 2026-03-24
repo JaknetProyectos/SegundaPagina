@@ -92,9 +92,8 @@ export default function CheckoutPage() {
 
       if (bookError) throw bookError;
 
-      // 3. Insertar Items en 'booking_items' (Buscando IDs numéricos de paquetes)
+      // 3. Insertar Items en 'booking_items'
       for (const item of cart.items) {
-        // Buscamos el ID del paquete en la tabla activity_packages
         const { data: pkgData } = await supabase
           .from('activity_packages')
           .select('id')
@@ -106,7 +105,7 @@ export default function CheckoutPage() {
           .from('booking_items')
           .insert({
             booking_id: booking.id,
-            package_id: pkgData?.id || 1, // Fallback al ID 1 si no encuentra coincidencia
+            package_id: pkgData?.id || 1,
             scheduled_date: item.date,
             pax_qty: item.people,
             unit_price: item.totalPrice / item.people
@@ -115,7 +114,32 @@ export default function CheckoutPage() {
         if (itemError) throw itemError;
       }
 
+      // 4. Generar código visual antes de enviarlo por correo
       const visualCode = `RES-${booking.id.slice(0, 8).toUpperCase()}`;
+
+      // 5. Enviar correo de confirmación de compra
+      const purchaseEmailData = {
+        type: 'PURCHASE',
+        email: contactInfo.email,
+        customerName: `${contactInfo.firstName} ${contactInfo.lastName}`,
+        resCode: visualCode, // Corregido: Ahora usa la variable visualCode
+        items: cart.items.map(item => ({
+          experience_title: item.experience.title,
+          travel_date: formatDate(item.date),
+          pax_qty: item.people,
+          package_name: item.packageLevel.name,
+          subtotal: formatPrice(item.totalPrice),
+          image_url: item.experience.images ? item.experience.images[0] : (item.experience.image_url || "")
+        })),
+        total: formatPrice(cart.total)
+      };
+
+      await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(purchaseEmailData),
+      });
+
       setConfirmationCode(visualCode);
       setShowSuccess(true);
       clearCart();
@@ -130,6 +154,7 @@ export default function CheckoutPage() {
 
   const isFormValid = contactInfo.firstName && contactInfo.lastName && contactInfo.email && contactInfo.phone;
 
+  // Render de Éxito y Formulario se mantienen igual que tu diseño...
   if (showSuccess) {
     return (
       <div className="min-h-screen flex flex-col bg-stone-50">
@@ -139,14 +164,16 @@ export default function CheckoutPage() {
             <CardContent className="p-10 text-center">
               <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-6" />
               <h1 className="text-3xl font-serif font-bold mb-3">¡Reservación Confirmada!</h1>
-              <p className="text-stone-500 mb-8">
+              <p className="text-stone-Stone-500 mb-8">
                 Tu reserva ha sido registrada para <strong>{contactInfo.email}</strong>.
               </p>
               <div className="p-6 bg-orange-50 rounded-2xl mb-8 border border-orange-100">
                 <p className="text-xs font-bold text-orange-700 uppercase mb-2">Código de Reservación</p>
                 <p className="font-mono text-2xl font-black text-orange-900">{confirmationCode}</p>
               </div>
-              <Button asChild className="w-full h-12 rounded-full bg-orange-400"><Link href="/">Volver al Inicio</Link></Button>
+              <Button asChild className="w-full h-12 rounded-full bg-orange-400">
+                <Link href="/">Volver al Inicio</Link>
+              </Button>
             </CardContent>
           </Card>
         </main>
@@ -155,6 +182,7 @@ export default function CheckoutPage() {
     );
   }
 
+  // Seccion de retorno principal del componente...
   return (
     <div className="min-h-screen flex flex-col bg-stone-50/50">
       <Header />

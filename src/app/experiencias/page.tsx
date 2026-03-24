@@ -50,7 +50,7 @@ export default function ExperienciasPage() {
     if (categoryParam) setSelectedCategory(categoryParam);
   }, [categoryParam]);
 
-  // FILTRADO IDÉNTICO AL ORIGINAL
+  // FILTRADO 
   const filteredExperiences = experiences.filter((exp) => {
     const matchesCategory = !selectedCategory || exp.categories?.slug === selectedCategory;
     const matchesSearch = !searchTerm ||

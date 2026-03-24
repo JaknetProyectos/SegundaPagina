@@ -1,4 +1,4 @@
-# Viajes MX - Plataforma Transaccional
+# Zenith Mexico - Plataforma Transaccional
 
 ## FASE 1: Modificaciones Completadas ✅
 - [x] Pricing: Solo tarjeta "Servicio Personalizado" con botón "Cotizar Ahora" → /cotizar
@@ -20,7 +20,7 @@
 - [x] Types y Data - Tipos TypeScript y datos mock
 
 ## Credenciales Admin Demo
-- Email: admin@viajes.mx
+- Email: admin@zenithmexico.com.mx
 - Password: admin123
 
 ## Rutas del Proyecto

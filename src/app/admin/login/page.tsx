@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@viajes.mx"
+                  placeholder="admin@zenithmexico.com.mx"
                   required
                   className="h-12"
                 />
@@ -128,14 +128,14 @@ export default function AdminLoginPage() {
                 Credenciales de demostración:
               </p>
               <p className="text-xs text-center font-mono">
-                admin@viajes.mx / admin123
+                admin@zenithmexico.com.mx/ admin123
               </p>
             </div>
           </CardContent>
         </Card>
 
         <p className="text-center text-xs text-muted-foreground mt-6">
-          © {new Date().getFullYear()} Viajes.mx - Todos los derechos reservados
+          © {new Date().getFullYear()}zenithmexico.com.mx - Todos los derechos reservados
         </p>
       </div>
     </div>

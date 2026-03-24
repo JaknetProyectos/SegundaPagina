@@ -43,13 +43,13 @@ export function Header() {
             <div className="w-14 h-14 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-110">
               <img 
                 src="/logo 2.png"
-                alt="Logo Viajes.mx" 
+                alt="Logo zenithmexico.com.mx"
                 className="w-full h-full object-contain" 
               />
             </div>
             <div className="hidden sm:block">
-              <span className="text-xl font-serif font-semibold text-foreground">Viajes</span>
-              <span className="text-xl font-serif font-light text-primary">.mx</span>
+              <span className="text-xl font-serif font-semibold text-foreground">Zenith</span>
+              <span className="text-xl font-serif font-light text-primary">Mexico</span>
             </div>
           </Link>
 

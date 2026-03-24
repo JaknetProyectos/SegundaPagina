@@ -40,7 +40,7 @@ export function Hero() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden relative group shadow-2xl">
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-[url('https://img.static-kl.com/transform/265eff4b-a104-4da9-83f0-3c998b03b1fe/')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                     <MapPin className="w-4 h-4" />
@@ -59,12 +59,12 @@ export function Hero() {
 
               <div className="space-y-4 pt-12">
                 <div className="aspect-square rounded-3xl overflow-hidden relative shadow-2xl">
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570737209810-87a8e7245f88?w=600')] bg-cover bg-center" />
+                  <div className="absolute inset-0 bg-[url('https://oem.com.mx/elsoldemexico/img/13723873/1729769072/BASE_LANDSCAPE/1200/image.webp')] bg-cover bg-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white text-sm font-medium">Oaxaca de Juárez</div>
                 </div>
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden relative shadow-2xl">
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=600')] bg-cover bg-center" />
+                  <div className="absolute inset-0 bg-[url('https://www.delphinusworld.com/hubfs/playas%20y%20cenotes%20riviera%20maya.webp')] bg-cover bg-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white text-sm font-medium">Riviera Maya</div>
                 </div>

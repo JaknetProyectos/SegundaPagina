@@ -3,7 +3,7 @@ import "./globals.css";
 import { ClientBody } from "./ClientBody";
 
 export const metadata: Metadata = {
-  title: "Viajes MX - Experiencias Únicas en México",
+  title: "Zenith Mexico - Experiencias Únicas en México",
   description: "Diseñamos experiencias personalizadas para que tú solo te preocupes por disfrutar el camino. Descubre los rincones más auténticos de México.",
 };
 

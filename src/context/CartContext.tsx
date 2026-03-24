@@ -29,7 +29,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Load cart from localStorage on mount
   useEffect(() => {
-    const savedCart = localStorage.getItem("viajes-mx-cart");
+    const savedCart = localStorage.getItem("ZenithMexico-cart");
     if (savedCart) {
       try {
         const parsed = JSON.parse(savedCart);
@@ -44,7 +44,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Save cart to localStorage on change
   useEffect(() => {
     if (isHydrated) {
-      localStorage.setItem("viajes-mx-cart", JSON.stringify(cart));
+      localStorage.setItem("ZenithMexico-cart", JSON.stringify(cart));
     }
   }, [cart, isHydrated]);
 
